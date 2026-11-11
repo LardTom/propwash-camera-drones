@@ -1,0 +1,11 @@
+{
+  "camdrones.subtitles.crew.request": "Camera operator invited",
+  "camdrones.subtitles.gimbal.calibrate": "Gimbal motors whir",
+  "camdrones.subtitles.mission.done": "Mission complete",
+  "camdrones.subtitles.mission.start": "Mission starts",
+  "camdrones.subtitles.planner.click": "Flight planner clicks",
+  "camdrones.subtitles.planner.waypoint": "Waypoint set",
+  "camdrones.subtitles.warning.atti": "ATTI – obstacle sensing off",
+  "camdrones.subtitles.warning.limit": "Flight limit warning",
+  "camdrones.subtitles.warning.obstacle": "Obstacle warning beeps"
+}

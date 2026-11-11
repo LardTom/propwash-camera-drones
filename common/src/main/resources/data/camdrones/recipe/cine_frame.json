@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_frame",
+  "key": {
+    "P": "propwash:carbon_plate",
+    "I": "minecraft:iron_ingot",
+    "D": "minecraft:black_dye",
+    "S": "minecraft:iron_bars"
+  },
+  "pattern": [
+    "PIP",
+    "IDI",
+    "S S"
+  ],
+  "result": {
+    "id": "camdrones:cine_frame"
+  }
+}

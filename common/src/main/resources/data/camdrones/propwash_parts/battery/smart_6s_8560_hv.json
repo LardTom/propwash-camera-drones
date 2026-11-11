@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "mass_g": 940.0,
+  "rarity": "rare",
+  "cells": 6,
+  "capacity_mah": 8560,
+  "cell_resistance_ohm": 0.006,
+  "c_rating": 15,
+  "chemistry": "propwash:lihv",
+  "pack_mm": [
+    170.0,
+    110.0,
+    60.0
+  ],
+  "recycle": {
+    "item": "propwash:lipo_cell",
+    "count": 6
+  },
+  "sort": 753,
+  "visual": {
+    "accent": "#1b1d20"
+  }
+}

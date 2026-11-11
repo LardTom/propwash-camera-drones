@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "has_camera_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "camdrones:gimbal_compact",
+              "camdrones:gimbal_tour",
+              "camdrones:gimbal_cine",
+              "camdrones:flight_planner"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:gui/advancements/backgrounds/adventure",
+    "description": {
+      "translate": "camdrones.advancement.root.description"
+    },
+    "icon": {
+      "id": "camdrones:gimbal_tour"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "camdrones.advancement.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_camera_gear"
+    ]
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "parent": "camdrones:root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "camdrones.advancement.crew_flight.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "camdrones:gimbal_cine"
+    },
+    "title": {
+      "translate": "camdrones.advancement.crew_flight.title"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

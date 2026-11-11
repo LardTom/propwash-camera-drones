@@ -1,0 +1,13 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "camdrones:part/prop/fold_15_damaged_ccw_paint",
+    "tints": [
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 0,
+        "default": 2040100
+      }
+    ]
+  }
+}

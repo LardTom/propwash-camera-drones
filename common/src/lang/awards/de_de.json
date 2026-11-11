@@ -1,0 +1,10 @@
+{
+  "camdrones.advancement.root.title": "Kamera-Drohnen",
+  "camdrones.advancement.root.description": "Besorge dir einen Gimbal oder den Flugplaner",
+  "camdrones.advancement.crew_flight.title": "Zu zweit in der Luft",
+  "camdrones.advancement.crew_flight.description": "Fliege eine Kamera-Drohne zu zweit: einer steuert, der andere führt die Kamera",
+  "camdrones.advancement.video.title": "Kamera läuft",
+  "camdrones.advancement.video.description": "Nimm mit einer Kamera-Drohne ein Video auf",
+  "camdrones.advancement.mission.title": "Flugplan erfüllt",
+  "camdrones.advancement.mission.description": "Schließe eine Mission aus dem Flugplaner ab"
+}

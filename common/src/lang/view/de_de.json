@@ -1,0 +1,13 @@
+{
+  "camdrones.planner.mission.view": "Ansicht",
+  "camdrones.planner.mission.view.tooltip": "Was du im FPV mit dieser Drohne siehst: Propwashs OSD oder die Kamera-Ansicht der Kamera-Drohne (Leiste oben, Karte, Neigungsskala). Wird sofort an der Drohne gespeichert.",
+  "camdrones.planner.value.view.osd": "OSD",
+  "camdrones.planner.value.view.camera": "Kamera",
+  "camdrones.planner.view.result.ok": "Kamera-Ansicht an der Drohne gespeichert",
+  "camdrones.planner.view.result.rate_limited": "Zu schnell – kurz warten",
+  "camdrones.planner.view.result.invalid": "Einstellung ungültig",
+  "camdrones.planner.view.result.not_linked": "Flugplaner nicht gekoppelt",
+  "camdrones.planner.view.result.not_found": "Drohne nicht gefunden – ist sie in dieser Welt geladen?",
+  "camdrones.planner.view.result.not_owner": "Nicht deine Drohne",
+  "camdrones.planner.view.result.unavailable": "Drohne nimmt gerade keine Einstellung an"
+}

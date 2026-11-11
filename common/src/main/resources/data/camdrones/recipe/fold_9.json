@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_prop",
+  "key": {
+    "K": "minecraft:dried_kelp",
+    "P": "propwash:carbon_plate",
+    "X": "minecraft:iron_chain"
+  },
+  "pattern": [
+    "KP ",
+    " X ",
+    " PK"
+  ],
+  "result": {
+    "id": "camdrones:fold_9",
+    "count": 4
+  }
+}

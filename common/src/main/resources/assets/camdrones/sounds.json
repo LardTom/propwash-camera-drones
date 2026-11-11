@@ -1,0 +1,84 @@
+{
+  "planner.click": {
+    "subtitle": "camdrones.subtitles.planner.click",
+    "sounds": [
+      {
+        "name": "camdrones:audio/planner_click",
+        "preload": true
+      }
+    ]
+  },
+  "planner.waypoint": {
+    "subtitle": "camdrones.subtitles.planner.waypoint",
+    "sounds": [
+      {
+        "name": "camdrones:audio/planner_waypoint",
+        "preload": true
+      }
+    ]
+  },
+  "mission.start": {
+    "subtitle": "camdrones.subtitles.mission.start",
+    "sounds": [
+      {
+        "name": "camdrones:audio/mission_start",
+        "preload": true
+      }
+    ]
+  },
+  "mission.done": {
+    "subtitle": "camdrones.subtitles.mission.done",
+    "sounds": [
+      {
+        "name": "camdrones:audio/mission_done",
+        "preload": true
+      }
+    ]
+  },
+  "gimbal.calibrate": {
+    "subtitle": "camdrones.subtitles.gimbal.calibrate",
+    "sounds": [
+      {
+        "name": "camdrones:audio/gimbal_calibrate",
+        "attenuation_distance": 12
+      }
+    ]
+  },
+  "warning.obstacle": {
+    "subtitle": "camdrones.subtitles.warning.obstacle",
+    "sounds": [
+      {
+        "name": "camdrones:audio/warning_obstacle",
+        "preload": true
+      }
+    ]
+  },
+  "warning.limit": {
+    "subtitle": "camdrones.subtitles.warning.limit",
+    "sounds": [
+      {
+        "name": "camdrones:audio/warning_limit",
+        "preload": true
+      }
+    ]
+  },
+  "warning.atti": {
+    "subtitle": "camdrones.subtitles.warning.atti",
+    "sounds": [
+      {
+        "name": "camdrones:audio/warning_limit",
+        "pitch": 0.75,
+        "preload": true
+      }
+    ]
+  },
+  "crew.request": {
+    "subtitle": "camdrones.subtitles.crew.request",
+    "sounds": [
+      {
+        "name": "camdrones:audio/crew_request",
+        "preload": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_stack",
+  "key": {
+    "B": "propwash:circuit_board",
+    "C": "minecraft:compass",
+    "R": "minecraft:redstone",
+    "G": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "BCB",
+    "RGR",
+    "B B"
+  ],
+  "result": {
+    "id": "camdrones:nav_fc_compact"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "camdrones.planner.mission.view": "View",
+  "camdrones.planner.mission.view.tooltip": "What you see in FPV with this drone: Propwash's OSD or the camera view of the camera drone (top bar, map, tilt scale). Saved on the drone straight away.",
+  "camdrones.planner.value.view.osd": "OSD",
+  "camdrones.planner.value.view.camera": "Camera",
+  "camdrones.planner.view.result.ok": "Camera view saved on the drone",
+  "camdrones.planner.view.result.rate_limited": "Too fast – wait a moment",
+  "camdrones.planner.view.result.invalid": "Invalid setting",
+  "camdrones.planner.view.result.not_linked": "Flight planner not paired",
+  "camdrones.planner.view.result.not_found": "Drone not found – is it loaded in this world?",
+  "camdrones.planner.view.result.not_owner": "Not your drone",
+  "camdrones.planner.view.result.unavailable": "The drone does not take settings right now"
+}

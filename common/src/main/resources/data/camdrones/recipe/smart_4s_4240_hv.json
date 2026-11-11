@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_battery",
+  "key": {
+    "L": "propwash:lipo_cell",
+    "K": "minecraft:comparator",
+    "B": "propwash:circuit_board"
+  },
+  "pattern": [
+    "LKL",
+    "LBL"
+  ],
+  "result": {
+    "id": "camdrones:smart_4s_4240_hv"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "camdrones:block/landing_pad"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "camdrones.osd.mode": "Nav-FC-Modus",
+  "camdrones.osd.gimbal": "Gimbal-Neigung",
+  "camdrones.osd.mission": "Mission",
+  "camdrones.osd.obstacle": "Hindernis",
+  "camdrones.osd.flight_left": "Restflugzeit",
+  "camdrones.osd.warning.compass": "KOMPASSFEHLER",
+  "camdrones.osd.warning.obstacle_off": "ATTI - HINDERNISERKENNUNG AUS",
+  "camdrones.osd.mode_hint": "Modus-Hinweis",
+  "camdrones.osd.hint.n": "N: GPS hält Pos. + Horizont",
+  "camdrones.osd.hint.c": "C: langsam, weich für Video",
+  "camdrones.osd.hint.s": "S: schnell, kein Wandstopp",
+  "camdrones.osd.hint.atti": "ATTI: ohne GPS, treibt ab",
+  "camdrones.hud.settings.title": "Kamera-Ansicht und Warntöne",
+  "camdrones.hud.settings.unit": "Tempo-Einheit",
+  "camdrones.hud.settings.unit.tooltip": "Einheit für H.S. und V.S. in der Kamera-Ansicht: m/s oder km/h. Höhe und Entfernung bleiben in Metern.",
+  "camdrones.hud.settings.volume": "Warnton-Lautstärke",
+  "camdrones.hud.settings.volume.value": "%s %%",
+  "camdrones.hud.settings.volume.tooltip": "Lautstärke des Piepens vor Hindernissen, des Tons an der Höhen- oder Abstandsgrenze und des Tons beim Wechsel in ATTI. 0 % schaltet alle stumm.",
+  "camdrones.hud.unit.metres_per_second": "m/s",
+  "camdrones.hud.unit.kilometres_per_hour": "km/h"
+}

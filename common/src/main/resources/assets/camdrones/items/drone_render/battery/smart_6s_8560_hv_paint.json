@@ -1,0 +1,13 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "camdrones:part/battery/smart_6s_8560_hv_paint",
+    "tints": [
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 0,
+        "default": 2237737
+      }
+    ]
+  }
+}

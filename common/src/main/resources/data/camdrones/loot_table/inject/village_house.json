@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 99
+        },
+        {
+          "type": "minecraft:item",
+          "name": "propwash:drone",
+          "weight": 1,
+          "modifier": {
+            "type": "minecraft:set_components",
+            "components": {
+              "propwash:drone_build": {
+                "frame": "camdrones:compact_fold_frame",
+                "stack": "camdrones:nav_fc_compact",
+                "motor": "camdrones:m1404_1600",
+                "prop": "camdrones:fold_6",
+                "video": "camdrones:cam_link_compact",
+                "battery": "camdrones:smart_2s_3850_lion",
+                "accessories": {
+                  "front": "camdrones:gimbal_compact"
+                }
+              },
+              "propwash:battery_charge": 0.4,
+              "minecraft:item_name": {
+                "translate": "camdrones.preset.compact"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

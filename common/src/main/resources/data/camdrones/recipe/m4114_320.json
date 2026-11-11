@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_motor",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "C": "propwash:copper_coil",
+    "W": "#minecraft:wool"
+  },
+  "pattern": [
+    "ICI",
+    "CWC",
+    "ICI"
+  ],
+  "result": {
+    "id": "camdrones:m4114_320"
+  }
+}

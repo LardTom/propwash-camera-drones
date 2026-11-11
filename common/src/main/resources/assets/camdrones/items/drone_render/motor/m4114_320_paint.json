@@ -1,0 +1,18 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "camdrones:part/motor/m4114_320_paint",
+    "tints": [
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 0,
+        "default": 2171943
+      },
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 1,
+        "default": 4145738
+      }
+    ]
+  }
+}

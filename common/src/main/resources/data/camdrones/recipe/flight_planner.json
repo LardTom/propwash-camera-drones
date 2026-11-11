@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:glass_pane",
+    "M": "minecraft:map",
+    "B": "propwash:circuit_board"
+  },
+  "pattern": [
+    "IGI",
+    "IMI",
+    "IBI"
+  ],
+  "result": {
+    "id": "camdrones:flight_planner"
+  }
+}

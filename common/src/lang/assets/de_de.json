@@ -1,0 +1,11 @@
+{
+  "camdrones.subtitles.crew.request": "Kamera-Operator eingeladen",
+  "camdrones.subtitles.gimbal.calibrate": "Gimbal-Motoren surren",
+  "camdrones.subtitles.mission.done": "Mission beendet",
+  "camdrones.subtitles.mission.start": "Mission startet",
+  "camdrones.subtitles.planner.click": "Flugplaner klickt",
+  "camdrones.subtitles.planner.waypoint": "Wegpunkt gesetzt",
+  "camdrones.subtitles.warning.atti": "ATTI – Hinderniserkennung aus",
+  "camdrones.subtitles.warning.limit": "Warnung: Fluggrenze",
+  "camdrones.subtitles.warning.obstacle": "Hinderniswarnung piept"
+}

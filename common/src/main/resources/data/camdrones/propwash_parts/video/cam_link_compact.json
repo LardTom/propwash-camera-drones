@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "mass_g": 5.0,
+  "link": "digital",
+  "latency_ms": 120,
+  "range_blocks": 1200,
+  "image_quality": 0.95,
+  "camera_width_mm": 12.0,
+  "camera_fov_deg": 84.0,
+  "power_w": 6.0,
+  "antenna": "none",
+  "sort": 741,
+  "visual": {
+    "accent": "#c9cdd2"
+  }
+}

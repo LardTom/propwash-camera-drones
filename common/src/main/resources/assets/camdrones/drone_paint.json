@@ -1,0 +1,309 @@
+{
+  "channels": {
+    "frame": 200,
+    "tpu": 242,
+    "motor": 208,
+    "prop": 224,
+    "stack": 200,
+    "battery": 200,
+    "camera": 232,
+    "accessory": 200
+  },
+  "slots": [
+    "frame",
+    "tpu",
+    "motors",
+    "prop_fl",
+    "prop_fr",
+    "prop_rl",
+    "prop_rr",
+    "stack",
+    "battery",
+    "camera",
+    "accessories"
+  ],
+  "models": {
+    "accessory/gimbal_cine": [
+      {
+        "channel": "accessory",
+        "base": "#1b1d20"
+      }
+    ],
+    "accessory/gimbal_compact": [
+      {
+        "channel": "accessory",
+        "base": "#bec1c6"
+      }
+    ],
+    "accessory/gimbal_tour": [
+      {
+        "channel": "accessory",
+        "base": "#5a6068"
+      }
+    ],
+    "battery/smart_2s_3850_lion": [
+      {
+        "channel": "battery",
+        "base": "#bec1c6"
+      }
+    ],
+    "battery/smart_4s_4240_hv": [
+      {
+        "channel": "battery",
+        "base": "#5a6068"
+      }
+    ],
+    "battery/smart_6s_8560_hv": [
+      {
+        "channel": "battery",
+        "base": "#1b1d20"
+      }
+    ],
+    "frame/cine_frame": [
+      {
+        "channel": "frame",
+        "base": "#1b1d20"
+      },
+      {
+        "channel": "tpu",
+        "base": "#2ab3d4"
+      }
+    ],
+    "frame/compact_fold_frame": [
+      {
+        "channel": "frame",
+        "base": "#bec1c6"
+      },
+      {
+        "channel": "tpu",
+        "base": "#2ab3d4"
+      }
+    ],
+    "frame/tour_fold_frame": [
+      {
+        "channel": "frame",
+        "base": "#5a6068"
+      },
+      {
+        "channel": "tpu",
+        "base": "#2ab3d4"
+      }
+    ],
+    "motor/m1404_1600": [
+      {
+        "channel": "motor",
+        "base": "#c5c9ce"
+      }
+    ],
+    "motor/m2008_500": [
+      {
+        "channel": "motor",
+        "base": "#5a6068"
+      }
+    ],
+    "motor/m4114_320": [
+      {
+        "channel": "motor",
+        "base": "#1b1d20"
+      },
+      {
+        "channel": "motor",
+        "base": "#33363c"
+      }
+    ],
+    "prop/fold_15": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_blur": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_broken": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_broken_ccw": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_ccw": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_damaged": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_damaged_ccw": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_worn": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_15_worn_ccw": [
+      {
+        "channel": "prop",
+        "base": "#1b1d20"
+      }
+    ],
+    "prop/fold_6": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_blur": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_broken": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_broken_ccw": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_ccw": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_damaged": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_damaged_ccw": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_worn": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_6_worn_ccw": [
+      {
+        "channel": "prop",
+        "base": "#c9cdd2"
+      }
+    ],
+    "prop/fold_9": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_blur": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_broken": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_broken_ccw": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_ccw": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_damaged": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_damaged_ccw": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_worn": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "prop/fold_9_worn_ccw": [
+      {
+        "channel": "prop",
+        "base": "#5a6068"
+      }
+    ],
+    "stack/nav_fc_compact": [
+      {
+        "channel": "stack",
+        "base": "#141619"
+      }
+    ],
+    "stack/nav_fc_pro": [
+      {
+        "channel": "stack",
+        "base": "#141619"
+      }
+    ],
+    "video/cam_link_compact": [
+      {
+        "channel": "camera",
+        "base": "#3a3e44"
+      },
+      {
+        "channel": "camera",
+        "base": "#1d1e21"
+      }
+    ],
+    "video/cam_link_pro": [
+      {
+        "channel": "camera",
+        "base": "#3a3e44"
+      },
+      {
+        "channel": "camera",
+        "base": "#1d1e21"
+      }
+    ]
+  }
+}

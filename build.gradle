@@ -1,0 +1,97 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.18.1' apply false
+    id 'net.neoforged.moddev' version '2.0.147' apply false
+}
+
+ext.camRunDirs = [
+        client     : 'runs/client',
+        selftest   : 'runs/selftest-client',
+        smoke      : 'runs/smoke-client',
+        server     : 'runs/server',
+        serverSmoke: 'runs/smoke-server',
+]
+
+def mutedOptions = [
+        'soundCategory_master'  : '0.001',
+        'soundCategory_music'   : '0.0',
+        'soundCategory_record'  : '0.0',
+        'soundCategory_weather' : '0.0',
+        'soundCategory_block'   : '0.0',
+        'soundCategory_hostile' : '0.0',
+        'soundCategory_neutral' : '0.0',
+        'soundCategory_player'  : '0.0',
+        'soundCategory_ambient' : '0.0',
+        'soundCategory_voice'   : '0.0',
+        'soundCategory_ui'      : '0.0',
+        'pauseOnLostFocus'      : 'false',
+        'onboardAccessibility'  : 'false',
+]
+def selftestOptions = [
+        'renderDistance'    : '6',
+        'simulationDistance': '5',
+        'tutorialStep'      : 'none',
+]
+def optionsDataVersion = '5023'
+
+tasks.register('prepareRuns') {
+    group = 'camdrones'
+    description = 'Schreibt stumme options.txt in die Client-Run-Verzeichnisse von Fabric und NeoForge.'
+    def targets = []
+    ['fabric', 'neoforge'].each { loader ->
+        targets << [dir: file("${loader}/${camRunDirs.client}"), options: mutedOptions]
+        targets << [dir: file("${loader}/${camRunDirs.selftest}"), options: mutedOptions + selftestOptions]
+        targets << [dir: file("${loader}/${camRunDirs.smoke}"), options: mutedOptions + selftestOptions]
+    }
+    outputs.upToDateWhen { false }
+    doLast {
+        targets.each { target ->
+            File dir = target.dir
+            Map<String, String> options = target.options
+            dir.mkdirs()
+            File file = new File(dir, 'options.txt')
+            List<String> lines = file.exists() ? file.readLines('UTF-8') : ["version:${optionsDataVersion}".toString()]
+            Set<String> seen = []
+            List<String> patched = lines.collect { line ->
+                int colon = line.indexOf(':')
+                String key = colon > 0 ? line.substring(0, colon) : null
+                if (key != null && options.containsKey(key)) {
+                    seen << key
+                    return "${key}:${options[key]}".toString()
+                }
+                return line
+            }
+            options.each { key, value ->
+                if (!seen.contains(key)) {
+                    patched << "${key}:${value}".toString()
+                }
+            }
+            file.setText(patched.join('\n') + '\n', 'UTF-8')
+            logger.lifecycle("prepareRuns: ${project.relativePath(file)} stumm geschaltet")
+        }
+    }
+}
+
+tasks.register('prepareServerSmoke') {
+    group = 'camdrones'
+    description = 'Legt eula.txt und server.properties für den Server-Rauchtest beider Loader an.'
+    def dirs = ['fabric', 'neoforge'].collect { loader -> file("${loader}/${camRunDirs.serverSmoke}") }
+    outputs.upToDateWhen { false }
+    doLast {
+        dirs.each { File dir ->
+            dir.mkdirs()
+            new File(dir, 'eula.txt').setText('eula=true\n', 'UTF-8')
+            new File(dir, 'server.properties').setText([
+                    'online-mode=false',
+                    "server-port=${25631 + (System.getenv('PROPWASH_MC_SLOT') ?: '0').toInteger()}".toString(),
+                    'level-type=minecraft\\:flat',
+                    'generator-settings={"layers"\\:[{"block"\\:"minecraft\\:bedrock","height"\\:1},{"block"\\:"minecraft\\:dirt","height"\\:2},{"block"\\:"minecraft\\:grass_block","height"\\:1}],"biome"\\:"minecraft\\:plains"}',
+                    'generate-structures=false',
+                    'spawn-protection=16',
+                    'view-distance=6',
+                    'simulation-distance=5',
+                    'sync-chunk-writes=false',
+            ].join('\n') + '\n', 'UTF-8')
+            new File(dir, 'world').deleteDir()
+        }
+    }
+}

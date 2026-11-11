@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "camdrones_lens",
+  "key": {
+    "N": "minecraft:iron_nugget",
+    "S": "minecraft:spyglass",
+    "G": "minecraft:glass_pane"
+  },
+  "pattern": [
+    "SGS",
+    "NGN"
+  ],
+  "result": {
+    "id": "camdrones:lens_85"
+  }
+}

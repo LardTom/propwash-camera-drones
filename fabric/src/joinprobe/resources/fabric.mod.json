@@ -1,0 +1,21 @@
+{
+    "schemaVersion": 1,
+    "id": "camdrones_joinprobe",
+    "version": "1.0.0",
+    "name": "Camera Drones Join Probe",
+    "description": "Test client without the camera drone add-on for the join test.",
+    "authors": [
+        "lardtom"
+    ],
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "de.lardtom.camdrones.joinprobe.fabric.FabricJoinProbe"
+        ]
+    },
+    "depends": {
+        "fabricloader": "*",
+        "minecraft": "*",
+        "fabric-api": "*"
+    }
+}

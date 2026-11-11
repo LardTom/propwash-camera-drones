@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_motor",
+  "key": {
+    "N": "minecraft:iron_nugget",
+    "C": "propwash:copper_coil",
+    "W": "#minecraft:wool"
+  },
+  "pattern": [
+    "NCN",
+    "CWC"
+  ],
+  "result": {
+    "id": "camdrones:m2008_500",
+    "count": 2
+  }
+}

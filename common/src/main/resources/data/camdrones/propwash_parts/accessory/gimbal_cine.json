@@ -1,0 +1,35 @@
+{
+  "format": 1,
+  "mass_g": 420.0,
+  "rarity": "rare",
+  "slot": "front",
+  "frames": [
+    "camdrones:compact_fold_frame",
+    "camdrones:tour_fold_frame",
+    "camdrones:cine_frame"
+  ],
+  "size_mm": [
+    110.0,
+    125.0,
+    110.0
+  ],
+  "flight_battery_w": 7.0,
+  "frontal_area_m2": 0.01,
+  "action_cam": {
+    "max_height": 2160,
+    "max_fps": 60,
+    "stabilization": false,
+    "horizon_levelling": false,
+    "own_battery_wh": 0.0,
+    "record_w": 3.0,
+    "max_record_w": 5.0,
+    "fov_deg": 84.0,
+    "image_quality": 0.98,
+    "low_light_noise": 0.2,
+    "sensor_in": 1.33
+  },
+  "sort": 763,
+  "visual": {
+    "accent": "#1b1d20"
+  }
+}

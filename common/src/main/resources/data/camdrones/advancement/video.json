@@ -1,0 +1,25 @@
+{
+  "parent": "camdrones:root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "camdrones.advancement.video.description"
+    },
+    "frame": "task",
+    "icon": {
+      "id": "camdrones:lens_50"
+    },
+    "title": {
+      "translate": "camdrones.advancement.video.title"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

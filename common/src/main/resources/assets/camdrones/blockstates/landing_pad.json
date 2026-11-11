@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "camdrones:block/landing_pad"
+    }
+  }
+}

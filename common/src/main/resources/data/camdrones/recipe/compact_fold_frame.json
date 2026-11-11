@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_frame",
+  "key": {
+    "P": "propwash:carbon_plate",
+    "K": "minecraft:iron_chain",
+    "D": "minecraft:light_gray_dye"
+  },
+  "pattern": [
+    "P P",
+    "KDK",
+    "P P"
+  ],
+  "result": {
+    "id": "camdrones:compact_fold_frame"
+  }
+}

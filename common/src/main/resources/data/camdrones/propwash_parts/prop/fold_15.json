@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "mass_g": 22.0,
+  "rarity": "rare",
+  "diameter_mm": 381,
+  "pitch_in": 7.5,
+  "blades": 2,
+  "ct": 0.105,
+  "cp": 0.036,
+  "material": "carbon_fiber_nylon",
+  "sort": 733,
+  "visual": {
+    "accent": "#1b1d20"
+  }
+}

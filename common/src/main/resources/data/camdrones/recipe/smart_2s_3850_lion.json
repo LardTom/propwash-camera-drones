@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_battery",
+  "key": {
+    "L": "propwash:lipo_cell",
+    "K": "minecraft:comparator",
+    "B": "propwash:circuit_board"
+  },
+  "pattern": [
+    "LKL",
+    " B "
+  ],
+  "result": {
+    "id": "camdrones:smart_2s_3850_lion"
+  }
+}

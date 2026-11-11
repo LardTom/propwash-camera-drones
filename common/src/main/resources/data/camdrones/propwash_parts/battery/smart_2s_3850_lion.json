@@ -1,0 +1,22 @@
+{
+  "format": 1,
+  "mass_g": 118.0,
+  "cells": 2,
+  "capacity_mah": 3850,
+  "cell_resistance_ohm": 0.03,
+  "c_rating": 6,
+  "chemistry": "propwash:lion",
+  "pack_mm": [
+    78.0,
+    48.0,
+    26.0
+  ],
+  "recycle": {
+    "item": "propwash:lipo_cell",
+    "count": 2
+  },
+  "sort": 751,
+  "visual": {
+    "accent": "#c9cdd2"
+  }
+}

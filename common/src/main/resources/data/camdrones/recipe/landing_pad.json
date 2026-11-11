@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "K": "minecraft:gray_carpet",
+    "W": "minecraft:white_dye",
+    "S": "minecraft:smooth_stone_slab"
+  },
+  "pattern": [
+    "KWK",
+    "SSS"
+  ],
+  "result": {
+    "id": "camdrones:landing_pad"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_video",
+  "key": {
+    "A": "minecraft:lightning_rod",
+    "H": "propwash:hd_chip",
+    "B": "propwash:circuit_board",
+    "G": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "A A",
+    "HBH",
+    " G "
+  ],
+  "result": {
+    "id": "camdrones:cam_link_pro"
+  }
+}

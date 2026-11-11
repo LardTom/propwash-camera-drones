@@ -1,0 +1,322 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.fabricmc.fabric-loom'
+}
+
+dependencies {
+    minecraft("com.mojang:minecraft:${minecraft_version}")
+    implementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
+    implementation("de.lardtom:propwash-fabric-${minecraft_version}:${propwash_version}")
+}
+
+loom {
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.devtest
+        }
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir(rootProject.camRunDirs.client)
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir(rootProject.camRunDirs.server)
+        }
+        clientSelftest {
+            client()
+            source(sourceSets.devtest)
+            setConfigName('Fabric Client Selftest')
+            ideConfigGenerated(true)
+            runDir(rootProject.camRunDirs.selftest)
+            property('camdrones.selftest', 'true')
+            if (project.hasProperty('camScreenshots')) {
+                property('camdrones.screenshots', rootProject.file('docs/screenshots').absolutePath)
+            }
+        }
+        clientSmoke {
+            client()
+            source(sourceSets.devtest)
+            setConfigName('Fabric Client Smoke')
+            ideConfigGenerated(true)
+            runDir(rootProject.camRunDirs.smoke)
+            property('camdrones.smoketest', 'true')
+        }
+        serverSmoke {
+            server()
+            source(sourceSets.devtest)
+            setConfigName('Fabric Server Smoke')
+            ideConfigGenerated(true)
+            runDir(rootProject.camRunDirs.serverSmoke)
+            property('camdrones.serversmoke', 'true')
+        }
+    }
+}
+
+tasks.matching { it.name in ['runClient', 'runServer', 'runClientSelftest', 'runClientSmoke'] }.configureEach {
+    dependsOn(rootProject.tasks.named('prepareRuns'))
+}
+tasks.matching { it.name in ['runServerSmoke'] }.configureEach {
+    dependsOn(rootProject.tasks.named('prepareServerSmoke'))
+}
+
+tasks.matching { it.name in ['runClientSelftest', 'runClientSmoke', 'runServerSmoke'] }.configureEach {
+    doFirst {
+        sourceSets.devtest.output.resourcesDir.mkdirs()
+    }
+}
+
+[runClientSelftest: [dir: rootProject.camRunDirs.selftest, label: 'Selbsttest (Fabric)'],
+ runClientSmoke   : [dir: rootProject.camRunDirs.smoke, label: 'Rauchtest (Fabric)'],
+ runServerSmoke   : [dir: rootProject.camRunDirs.serverSmoke, label: 'Server-Rauchtest (Fabric)', scanLog: true]].each { taskName, cfg ->
+    tasks.matching { it.name == taskName }.configureEach { task ->
+        def resultFile = file("${cfg.dir}/camdrones-selftest-result.txt")
+        task.group = 'camdrones'
+        task.doFirst { resultFile.delete() }
+        task.doLast {
+            if (!resultFile.exists()) {
+                throw new GradleException("${cfg.label}: keine Ergebnisdatei – Spiel abgestürzt oder vorzeitig beendet?")
+            }
+            def result = resultFile.getText('UTF-8').trim()
+            if (!result.startsWith('PASS')) {
+                throw new GradleException("${cfg.label} fehlgeschlagen: ${result}")
+            }
+            if (cfg.scanLog) {
+                def logFile = file("${cfg.dir}/logs/latest.log")
+                if (!logFile.exists()) {
+                    throw new GradleException("${cfg.label}: kein logs/latest.log")
+                }
+                def bad = logFile.readLines('UTF-8').findAll { line ->
+                    line =~ /\/(ERROR|FATAL)\]/ || line.contains('MixinApplyError') || line.contains('InvalidMixinException') ||
+                            line.contains('InvalidInjectionException') || line.contains('Mixin apply failed')
+                }
+                if (!bad.isEmpty()) {
+                    throw new GradleException("${cfg.label}: ${bad.size()} Fehlerzeilen im Log, erste: ${bad.first()}")
+                }
+            }
+            logger.lifecycle("${cfg.label}: ${result}")
+        }
+    }
+}
+
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'includeInternal', 'modCompileClasspath'].each { variant ->
+    configurations.named(variant) {
+        attributes {
+            attribute(loaderAttribute, 'fabric')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant ->
+        configurations.named(variant) {
+            attributes {
+                attribute(loaderAttribute, 'fabric')
+            }
+        }
+    }
+}
+
+loom {
+    runs {
+        clientSelftest {
+            if (project.hasProperty('camdronesScreenshots')) {
+                property('camdrones.screenshots', rootProject.file('docs/screenshots').absolutePath)
+            }
+            def only = project.findProperty('camdronesSelftestOnly')?.toString()?.trim()
+            if (only) {
+                property('camdrones.selftest.only', only)
+            }
+        }
+    }
+}
+
+configurations {
+    commonJoinprobeJava {
+        canBeResolved = true
+    }
+}
+
+dependencies {
+    commonJoinprobeJava(project(path: ':common', configuration: 'commonJoinprobeJava'))
+}
+
+sourceSets {
+    joinprobe {
+        compileClasspath += configurations.compileClasspath
+        runtimeClasspath += configurations.runtimeClasspath
+    }
+}
+
+tasks.named('compileJoinprobeJava', JavaCompile) {
+    dependsOn(configurations.commonJoinprobeJava)
+    source(configurations.commonJoinprobeJava)
+}
+
+loom {
+    mods {
+        camdrones_joinprobe {
+            sourceSet sourceSets.joinprobe
+        }
+    }
+    runs {
+        clientNoAddon {
+            client()
+            source(sourceSets.joinprobe)
+            setConfigName('Fabric Client ohne Add-on')
+            ideConfigGenerated(false)
+            runDir('runs/noaddon-client')
+        }
+    }
+}
+
+tasks.matching { it.name == 'runClientNoAddon' }.configureEach { task ->
+    def runDir = file('runs/noaddon-client')
+    def resultFile = file('runs/noaddon-client/camdrones-selftest-result.txt')
+    task.group = 'camdrones'
+    task.dependsOn(rootProject.tasks.named('prepareRuns'))
+    task.doFirst {
+        runDir.mkdirs()
+        def options = file("${rootProject.camRunDirs.smoke}/options.txt")
+        if (options.exists()) {
+            new File(runDir, 'options.txt').setText(options.getText('UTF-8'), 'UTF-8')
+        }
+        resultFile.delete()
+    }
+    task.doLast {
+        if (!resultFile.exists()) {
+            throw new GradleException('Beitrittstest ohne Add-on (Fabric): keine Ergebnisdatei')
+        }
+        def result = resultFile.getText('UTF-8').trim()
+        if (!result.startsWith('PASS')) {
+            throw new GradleException("Beitrittstest ohne Add-on (Fabric) fehlgeschlagen: ${result}")
+        }
+        logger.lifecycle("Beitrittstest ohne Add-on (Fabric): ${result}")
+    }
+}
+
+class CamWebExportConsole extends InputStream {
+    private final File log
+    private final byte[] data
+    private int position
+    private boolean ready
+
+    CamWebExportConsole(File log, byte[] data) {
+        this.log = log
+        this.data = data
+    }
+
+    private void waitForServer() {
+        long deadline = System.currentTimeMillis() + 600_000L
+        while (!ready && System.currentTimeMillis() < deadline) {
+            if (log.isFile() && log.getText('UTF-8').contains('Done (')) {
+                break
+            }
+            Thread.sleep(500)
+        }
+        ready = true
+    }
+
+    @Override
+    int read() {
+        waitForServer()
+        return position < data.length ? (data[position++] & 0xff) : -1
+    }
+
+    @Override
+    int read(byte[] buffer, int offset, int length) {
+        waitForServer()
+        if (position >= data.length) {
+            return -1
+        }
+        int count = Math.min(length, data.length - position)
+        System.arraycopy(data, position, buffer, offset, count)
+        position += count
+        return count
+    }
+}
+
+def camWebExportRunDir = 'runs/web-export'
+loom {
+    runs {
+        webExport {
+            server()
+            setConfigName('Fabric Web Export')
+            ideConfigGenerated(false)
+            runDir(camWebExportRunDir)
+        }
+    }
+}
+
+tasks.matching { it.name == 'runWebExport' }.configureEach { task ->
+    def dir = file(camWebExportRunDir)
+    def port = 25631 + (System.getenv('PROPWASH_MC_SLOT') ?: '0').toInteger()
+    def selection = findProperty('camdronesWebExportSelection')?.toString()?.trim() ?: 'all'
+    def exportDir = new File(dir, 'propwash/web-export')
+    def copyDir = rootProject.layout.buildDirectory.dir('web-export').get().asFile
+    task.group = 'camdrones'
+    task.description = 'Schreibt den Web-Export (Format 2) mit /propwash webexport auf einem dedizierten Fabric-Server mit dem Add-on nach build/web-export/.'
+    if (!(selection ==~ /[a-z0-9_.-]+/)) {
+        throw new GradleException("-PcamdronesWebExportSelection=${selection}: nur all oder ein Namensraum aus [a-z0-9_.-]")
+    }
+    task.timeout = java.time.Duration.ofMinutes(20)
+    task.standardInput = new CamWebExportConsole(new File(dir, 'logs/latest.log'), "propwash webexport ${selection}\nstop\n".getBytes('UTF-8'))
+    task.doFirst {
+        try {
+            new ServerSocket(port).close()
+        } catch (IOException e) {
+            throw new GradleException("Web-Export: Port ${port} ist belegt (${e.message})")
+        }
+        dir.mkdirs()
+        new File(dir, 'eula.txt').setText('eula=true\n', 'UTF-8')
+        new File(dir, 'server.properties').setText([
+                'online-mode=false',
+                "server-port=${port}".toString(),
+                'level-type=minecraft\\:flat',
+                'generator-settings={"layers"\\:[{"block"\\:"minecraft\\:bedrock","height"\\:1},{"block"\\:"minecraft\\:grass_block","height"\\:1}],"biome"\\:"minecraft\\:plains"}',
+                'generate-structures=false',
+                'view-distance=4',
+                'simulation-distance=4',
+                'sync-chunk-writes=false',
+        ].join('\n') + '\n', 'UTF-8')
+        new File(dir, 'world').deleteDir()
+        new File(dir, 'logs/latest.log').delete()
+        sourceSets.devtest.output.resourcesDir.mkdirs()
+        sourceSets.devtest.output.classesDirs.each { it.mkdirs() }
+    }
+    task.doLast {
+        def logFile = new File(dir, 'logs/latest.log')
+        if (!logFile.exists()) {
+            throw new GradleException('Web-Export: kein logs/latest.log – Server abgestürzt oder nicht gestartet?')
+        }
+        def lines = logFile.readLines('UTF-8')
+        def result = lines.findAll { it.contains('Propwash-Web-Export: ') }
+        if (result.isEmpty()) {
+            throw new GradleException('Web-Export: keine Ergebniszeile im Log – Befehl nicht ausgeführt?')
+        }
+        def summary = result.last().substring(result.last().indexOf('Propwash-Web-Export: ') + 'Propwash-Web-Export: '.length())
+        if (!summary.startsWith('PASS')) {
+            throw new GradleException("Web-Export fehlgeschlagen: ${summary}")
+        }
+        def bad = lines.findAll { line ->
+            line =~ /\/(ERROR|FATAL)\]/ || line.contains('MixinApplyError') || line.contains('InvalidMixinException') ||
+                    line.contains('InvalidInjectionException') || line.contains('Mixin apply failed')
+        }
+        if (!bad.isEmpty()) {
+            throw new GradleException("Web-Export: ${bad.size()} Fehlerzeilen im Log, erste: ${bad.first()}")
+        }
+        copyDir.deleteDir()
+        project.copy {
+            from exportDir
+            into copyDir
+        }
+        logger.lifecycle("Web-Export (Fabric): ${summary} → ${project.relativePath(copyDir)}")
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "propwash_accessory",
+  "key": {
+    "C": "propwash:copper_coil",
+    "N": "minecraft:iron_nugget",
+    "T": "minecraft:tinted_glass",
+    "H": "propwash:hd_chip"
+  },
+  "pattern": [
+    " C ",
+    "NTN",
+    " H "
+  ],
+  "result": {
+    "id": "camdrones:gimbal_compact"
+  }
+}

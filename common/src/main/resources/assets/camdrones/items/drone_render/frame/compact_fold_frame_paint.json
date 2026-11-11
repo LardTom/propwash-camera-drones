@@ -1,0 +1,18 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "camdrones:part/frame/compact_fold_frame_paint",
+    "tints": [
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 0,
+        "default": 15922940
+      },
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 1,
+        "default": 2932191
+      }
+    ]
+  }
+}

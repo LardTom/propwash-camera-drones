@@ -1,0 +1,10 @@
+{
+  "camdrones.advancement.root.title": "Camera Drones",
+  "camdrones.advancement.root.description": "Get a gimbal or the flight planner",
+  "camdrones.advancement.crew_flight.title": "Two-Person Crew",
+  "camdrones.advancement.crew_flight.description": "Fly a camera drone as a pair: one flies, the other runs the camera",
+  "camdrones.advancement.video.title": "Camera Rolling",
+  "camdrones.advancement.video.description": "Record a video with a camera drone",
+  "camdrones.advancement.mission.title": "Flight Plan Complete",
+  "camdrones.advancement.mission.description": "Finish a mission from the flight planner"
+}

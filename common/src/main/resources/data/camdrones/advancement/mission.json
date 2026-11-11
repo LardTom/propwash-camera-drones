@@ -1,0 +1,25 @@
+{
+  "parent": "camdrones:root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "camdrones.advancement.mission.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "camdrones:flight_planner"
+    },
+    "title": {
+      "translate": "camdrones.advancement.mission.title"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

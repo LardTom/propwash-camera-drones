@@ -1,0 +1,42 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "camdrones:part/frame/cine_frame_paint",
+    "tints": [
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 0,
+        "default": 2237737
+      },
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 1,
+        "default": 2932191
+      }
+    ],
+    "transformation": {
+      "left_rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "right_rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.73,
+        1.73,
+        1.73
+      ],
+      "translation": [
+        -0.365,
+        -0.365,
+        -0.365
+      ]
+    }
+  }
+}

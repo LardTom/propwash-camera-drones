@@ -1,0 +1,22 @@
+{
+  "camdrones.osd.mode": "Nav-FC mode",
+  "camdrones.osd.gimbal": "Gimbal tilt",
+  "camdrones.osd.mission": "Mission",
+  "camdrones.osd.obstacle": "Obstacle",
+  "camdrones.osd.flight_left": "Flight time left",
+  "camdrones.osd.warning.compass": "COMPASS ERROR",
+  "camdrones.osd.warning.obstacle_off": "ATTI - OBSTACLE SENSING OFF",
+  "camdrones.osd.mode_hint": "Mode hint",
+  "camdrones.osd.hint.n": "N: GPS holds pos + horizon",
+  "camdrones.osd.hint.c": "C: slow + smooth for video",
+  "camdrones.osd.hint.s": "S: fast, no obstacle stop",
+  "camdrones.osd.hint.atti": "ATTI: no GPS, drifts in wind",
+  "camdrones.hud.settings.title": "Camera view and warning tones",
+  "camdrones.hud.settings.unit": "Speed unit",
+  "camdrones.hud.settings.unit.tooltip": "Unit for H.S. and V.S. in the camera view: m/s or km/h. Height and distance stay in metres.",
+  "camdrones.hud.settings.volume": "Warning tone volume",
+  "camdrones.hud.settings.volume.value": "%s%%",
+  "camdrones.hud.settings.volume.tooltip": "Volume of the obstacle beeps, the tone at the altitude or distance limit and the tone when switching to ATTI. 0% mutes all of them.",
+  "camdrones.hud.unit.metres_per_second": "m/s",
+  "camdrones.hud.unit.kilometres_per_hour": "km/h"
+}

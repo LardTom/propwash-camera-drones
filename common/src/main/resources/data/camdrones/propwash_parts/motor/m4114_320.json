@@ -1,0 +1,24 @@
+{
+  "format": 1,
+  "mass_g": 105.0,
+  "rarity": "rare",
+  "stator": "4114",
+  "kv": 320,
+  "mount": "camdrones:m41",
+  "max_current_a": 35.0,
+  "resistance_ohm": 0.08,
+  "cells": [
+    6,
+    12
+  ],
+  "thermal": {
+    "cooling_w_per_k": 0.34,
+    "cooling_w_per_k_per_rad_s": 0.0007,
+    "derate_start_c": 145.0,
+    "max_temp_c": 165.0
+  },
+  "sort": 723,
+  "visual": {
+    "accent": "#1b1d20"
+  }
+}

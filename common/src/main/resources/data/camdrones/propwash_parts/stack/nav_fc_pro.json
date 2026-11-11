@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "mass_g": 28.0,
+  "rarity": "uncommon",
+  "mount": "propwash:s30",
+  "esc_continuous_a": 45.0,
+  "esc_burst_a": 60.0,
+  "cells": [
+    3,
+    6
+  ],
+  "recycle": {
+    "item": "propwash:circuit_board",
+    "count": 3
+  },
+  "sort": 712,
+  "visual": {
+    "accent": "#2f81f7"
+  }
+}
